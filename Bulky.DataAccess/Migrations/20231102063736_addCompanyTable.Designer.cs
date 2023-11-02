@@ -4,6 +4,7 @@ using Bulky.DataAccess.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Bulky.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231102063736_addCompanyTable")]
+    partial class addCompanyTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -93,38 +96,6 @@ namespace Bulky.DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Companies");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            City = "Tech City",
-                            Name = "Tech Solution",
-                            PhoneNumber = "66454415",
-                            PostalCode = "121212",
-                            State = "NL",
-                            StreetAddress = "123 Tech st"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            City = "Tech City",
-                            Name = "Yes ution",
-                            PhoneNumber = "66454415",
-                            PostalCode = "121212",
-                            State = "NL",
-                            StreetAddress = "123 Tech st"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            City = "Tech City",
-                            Name = "No lution",
-                            PhoneNumber = "66454415",
-                            PostalCode = "121212",
-                            State = "NL",
-                            StreetAddress = "123 Tech st"
-                        });
                 });
 
             modelBuilder.Entity("Bulky.Models.Product", b =>
